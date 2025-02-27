@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VerificaFormativaCSV.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Button
+                x:Name="BtnCaricaDati"
+                Text="Carica Dati" 
+                Clicked="BtnCaricaDati_Clicked"
+                HorizontalOptions="Fill" />
+
+
+            <CollectionView x:Name="ListaElementi"
+                Grid.Row="0"
+                SelectionMode="Single"
+                MinimumHeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,5" Padding="10">
+                            <StackLayout Orientation="Vertical" 
+                             HorizontalOptions="FillAndExpand">
+
+                                <Label Text="ID: " 
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Id}" 
+                           FontSize="16"/>
+
+                                <Label Text="Nome: " 
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Nome}" 
+                           FontSize="16"/>
+
+                                <Label Text="Prezzo: " 
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Prezzo}" 
+                           FontSize="16"/>
+
+                                <Label Text="Quantita: " 
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Quantita}" 
+                           FontSize="16"/>
+
+                                <!-- Aggiungi due bottoni per ogni item -->
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                    <Button Text="Azione 1" 
+                                Clicked="OnAzione1Clicked" 
+                                HorizontalOptions="Center"/>
+                                    <Button Text="Azione 2" 
+                                Clicked="OnAzione2Clicked" 
+                                HorizontalOptions="Center"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
